@@ -7,6 +7,7 @@ let output = "<div>" + input + "</div>";
 
 
 // functional approach
+
 const trim = str => str.trim();
 const wrapInDiv = str => `<div>${str}</div>`;
 const toLowerCase = str => str.toLowerCase();
@@ -31,4 +32,13 @@ transformPipe(input);
 
 
 
+const trimCurr = str => str.trim();
+// Currying concept applied to this example
+// the first parameter received is the type , then the str processed by the other functions
+// is applied to this function.
+const wrapInDivCurr = type => str => `<${type}>${str}</${type}>`;
+const toLowerCaseCurr = str => str.toLowerCase();
+
+const transformPipe = pipe(trimCurr, toLowerCaseCurr, wrapInDivCurr("span"));
+transformPipe(input);
 
