@@ -20,10 +20,18 @@ const personNested =
         }
     };
 
-const updatedNestedPerson = {...person, name: "Bob"}
+// Deep copy example
+// in this case the property addres is created as a new reference 
+// and the values inside on it are filled by a copy of the person address copy values
+const updatedNestedPerson = 
+    {
+        ...person, 
+        address: {
+            ...person.address,
+            city: "New York"
+        },
+        name: "Bob"
+    }
 
-//this code is going to change the city on the personNested Object
-// the reason is the copy of the nested object is actually a reference to the nested object
-// inside personNested....
-updatedNestedPerson.address.city = "New York" 
-console.log(personNested)
+// In this way we avoid the error to upgrade porperties nested on our original object.
+console(updatedNestedPerson);
