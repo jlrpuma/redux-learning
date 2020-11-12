@@ -35,3 +35,27 @@ const updatedNestedPerson =
 
 // In this way we avoid the error to upgrade porperties nested on our original object.
 console(updatedNestedPerson);
+
+/* Inmmutability working with arrays */
+
+const numbers = [1, 2, 3];
+
+// adding at the end
+const added = [...numbers, 4];
+// adding at the beggining
+const added = [4, ...numbers];
+
+// using specific positions
+const index = numbers.indexOf(2);
+const added = [...numbers.slice(0, index), 4, ...numbers.slice(index)]
+// resultant array [1, 4, 2, 3]
+ 
+// removing element 2
+const removed = numbers.filter(n => n !== 2);
+
+// updating 
+// if we want to replace the 2 value with an object we must have in count 
+// the deep copy of the values on it...
+const updated = numbers.map(n => n === 2 ? 20 : n)
+
+
