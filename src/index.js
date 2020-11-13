@@ -6,6 +6,14 @@ import store from './store';
 /** it will show an empty array */
 //console.log(store.getState());
 
+/**
+ * This is used in case that we want to refresh our UI
+ * if we are working with react we are going to re render
+ */
+store.subscribe(() => {
+    console.log("Store changed!", store.getState())
+})
+
 store.dispatch({
     type: 'bugAdded',
     payload: {
