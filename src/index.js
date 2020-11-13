@@ -1,4 +1,5 @@
 import store from './store';
+import {BUG_ADDDED, BUG_REMOVED} from './actionTypes'
 
 /** dispatch, subscribe, getState, replaceReducer methods */
 //console.log(store);
@@ -15,7 +16,7 @@ const unsubscribe = store.subscribe(() => {
 })
 
 store.dispatch({
-    type: 'bugAdded',
+    type: BUG_ADDDED,
     payload: {
         description: 'Bug1'
     }
@@ -28,7 +29,7 @@ store.dispatch({
 unsubscribe();
 
 store.dispatch({
-    type: 'budRemoved',
+    type: BUG_REMOVED,
     payload: {
         id: 1
     }

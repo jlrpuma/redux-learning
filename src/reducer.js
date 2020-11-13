@@ -1,3 +1,5 @@
+import * as actions from './actionTypes'
+
 
 let lastId = 0;
 
@@ -12,7 +14,7 @@ when Redux call for first time the reducer is going to set the state to an empty
 Note: yo can use the the spread operator or Immer(this is better in case you have nested objects on your state)
 */
 export default function reducer(state = []  , action) {
-    if(action.type === 'bugAdded')
+    if(action.type === actions.BUG_ADDDED)
         return [
             ...state,
             {
@@ -21,7 +23,7 @@ export default function reducer(state = []  , action) {
                 resolved:false
             }
         ];
-    else if(action.type === 'bugRemoved')
+    else if(action.type === actions.BUG_REMOVED)
         return state.filter(bug => bug.id != action.payload.id)
     else 
         return state;
