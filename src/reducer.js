@@ -11,7 +11,7 @@ when Redux call for first time the reducer is going to set the state to an empty
 
 Note: yo can use the the spread operator or Immer(this is better in case you have nested objects on your state)
 */
-function reducer(state = []  , action) {
+export default function reducer(state = []  , action) {
     if(action.type === 'bugAdded')
         return [
             ...state,
