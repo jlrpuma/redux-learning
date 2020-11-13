@@ -10,7 +10,7 @@ import store from './store';
  * This is used in case that we want to refresh our UI
  * if we are working with react we are going to re render
  */
-store.subscribe(() => {
+const unsubscribe = store.subscribe(() => {
     console.log("Store changed!", store.getState())
 })
 
@@ -20,6 +20,9 @@ store.dispatch({
         description: 'Bug1'
     }
 });
+
+// provided function retruned when we call the subscribe method 
+unsubscribe();
 
 
 store.dispatch({
