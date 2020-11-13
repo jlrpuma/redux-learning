@@ -22,8 +22,10 @@ store.dispatch({
 });
 
 // provided function retruned when we call the subscribe method 
+/** We always wat to unsubscribe from all the subscriptions that we can have on the view 
+ * because many subscriptions opened can create memory leaks
+ */
 unsubscribe();
-
 
 store.dispatch({
     type: 'budRemoved',
