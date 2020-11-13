@@ -1,5 +1,6 @@
 import store from './store';
-import {BUG_ADDDED, BUG_REMOVED} from './actionTypes'
+import * as actionsCreator from './actions'
+
 
 /** dispatch, subscribe, getState, replaceReducer methods */
 //console.log(store);
@@ -15,12 +16,7 @@ const unsubscribe = store.subscribe(() => {
     console.log("Store changed!", store.getState())
 })
 
-store.dispatch({
-    type: BUG_ADDDED,
-    payload: {
-        description: 'Bug1'
-    }
-});
+store.dispatch(actionsCreator.bugAdded('Bug 1'));
 
 // provided function retruned when we call the subscribe method 
 /** We always wat to unsubscribe from all the subscriptions that we can have on the view 
@@ -28,11 +24,6 @@ store.dispatch({
  */
 unsubscribe();
 
-store.dispatch({
-    type: BUG_REMOVED,
-    payload: {
-        id: 1
-    }
-});
+store.dispatch(actionsCreator.bugRemoved(1));
 
 
