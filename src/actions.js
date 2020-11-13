@@ -1,19 +1,15 @@
 import {BUG_ADDDED, BUG_REMOVED} from './actionTypes'
 
-export function bugAdded(description) {
-    return {
+export const bugAdded = (description) => ({
         type: BUG_ADDDED,
         payload: {
             description: description
         }
-    };
-} 
+    });
 
-export function bugRemoved(id) {
-    return {
+export const bugRemoved = (id) => ({
         type: BUG_REMOVED,
         payload: {
             id: id
         }
-    };
-}
+    });
